@@ -2,7 +2,7 @@
 
 All Rights Reserved
 
-Copyright (c) 2026, Metallurgists of Create
+Copyright (c) 2026, The Metallurgists
 
 This licence applies to any files under the following directories:
 
@@ -14,7 +14,7 @@ This licence applies to any files under the following directories:
 
 All other files are licensed under the MIT NON-AI Licence:
 
-Copyright (c) 2026, Metallurgists of Create
+Copyright (c) 2026, The Metallurgists
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"),
 to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,
@@ -38,7 +38,7 @@ In addition, the following restrictions apply:
 
 5. Permitted distribution. The Software, in whole or in part and in original or modified form,
    may be distributed only:
-   (a) through the official Maven repository of Metallurgists of Create;
+   (a) through the official Maven repository of The Metallurgists;
    (b) through CurseForge (curseforge.com) and Modrinth (modrinth.com); and
    (c) as part of modpacks, provided the Software is included without removing its copyright notice or this licence.
    No person or organisation may upload, host, mirror, or otherwise distribute the Software or any

@@ -4,6 +4,8 @@ import dev.metallurgists.hematite.Hematite;
 import dev.metallurgists.hematite.api.weathering.block_growths.TickSource;
 import dev.metallurgists.hematite.api.weathering.block_growths.data.BlockGrowthHandler;
 import dev.metallurgists.hematite.registry.HematiteTickSources;
+import lombok.Getter;
+import lombok.Setter;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceKey;
@@ -43,6 +45,8 @@ public class SkyAccess {
         public final LevelChunk levelChunk;
         public final int randomTickSpeed;
 
+        @Setter
+        @Getter
         public float chance;
 
         public ChanceEvent(ServerLevel level, LevelChunk levelChunk, int randomTickSpeed) {
@@ -52,13 +56,6 @@ public class SkyAccess {
             this.chance = this.randomTickSpeed / (3f * 16f);
         }
 
-        public void setChance(float chance) {
-            this.chance = chance;
-        }
-
-        public float getChance() {
-            return this.chance;
-        }
     }
 
     public static class TickSourceEvent extends Event implements ICancellableEvent {
@@ -67,6 +64,8 @@ public class SkyAccess {
         public final int randomTickSpeed;
         public final BlockPos targetPos;
 
+        @Getter
+        @Setter
         public Holder<TickSource> tickSource = HematiteTickSources.CLEAR_SKY;
 
         public TickSourceEvent(ServerLevel level, LevelChunk levelChunk, int randomTickSpeed, BlockPos targetPos) {
@@ -76,13 +75,5 @@ public class SkyAccess {
             this.targetPos = targetPos;
         }
 
-        public void setTickSource(Holder<TickSource> tickSource) {
-            Hematite.LOGGER.debug("Setting tick source for block at {} to {}", targetPos, tickSource.unwrapKey().map(ResourceKey::location).orElse(Hematite.asResource("missingsource")));
-            this.tickSource = tickSource;
-        }
-
-        public Holder<TickSource> getTickSource() {
-            return this.tickSource;
-        }
     }
 }

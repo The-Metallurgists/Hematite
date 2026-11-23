@@ -17,4 +17,4 @@
   <a>Our API for a naturally changing world</a>
 </div>
 
-For Documentation see [Metallurgists of Create docs](https://metallurgists.dev/hematite/)
+For Documentation see [The Metallurgists' docs](https://metallurgists.dev/hematite/)
