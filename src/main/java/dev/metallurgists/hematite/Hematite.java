@@ -55,7 +55,7 @@ public class Hematite {
 
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
-        LOGGER.info("HELLO from server starting");
+        LOGGER.info("Thank you for using Hematite!");
     }
 
     private static void afterDataReloadOrDataSync(RegistryAccess registryAccess) {
