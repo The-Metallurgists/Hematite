@@ -52,7 +52,6 @@ public class CommonEvents {
                 .requires(cs -> cs.hasPermission(0))
                 .then(BlockGrowthListCommand.register(event.getBuildContext()))
                 .then(FluidGeneratorListCommand.register(event.getBuildContext()));
-
         event.getDispatcher().register(root);
     }
 }
