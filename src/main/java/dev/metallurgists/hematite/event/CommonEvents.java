@@ -43,7 +43,7 @@ public class CommonEvents {
         BlockPos blockPos = event.getPos();
         LevelAccessor level = event.getLevel();
         BlockState blockState = level.getBlockState(blockPos);
-        BlockGrowthHandler.tickBlock(HematiteTickSources.LIGHTNING, blockState, (ServerLevel) level, blockPos);
+        BlockGrowthHandler.tickBlock(event.isDirect() ? HematiteTickSources.LIGHTNING : HematiteTickSources.INDIRECT_LIGHTNING, blockState, (ServerLevel) level, blockPos);
     }
 
     @SubscribeEvent

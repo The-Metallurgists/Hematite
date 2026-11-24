@@ -3,22 +3,22 @@ package dev.metallurgists.hematite.api.weathering.block_growths.events;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.LightningBolt;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.bus.api.Event;
-import net.neoforged.neoforge.event.level.BlockEvent;
 
 public class LightningStruckBlockEvent extends Event {
     private final Level level;
     private final BlockPos pos;
     private final BlockState state;
     private final LightningBolt entity;
+    private final boolean direct;
 
-    public LightningStruckBlockEvent(BlockState state, Level level, BlockPos pos, LightningBolt entity) {
+    public LightningStruckBlockEvent(BlockState state, Level level, BlockPos pos, LightningBolt entity, boolean direct) {
         this.state = state;
         this.level = level;
         this.pos = pos;
         this.entity = entity;
+        this.direct = direct;
     }
 
     public Level getLevel() {
@@ -35,5 +35,9 @@ public class LightningStruckBlockEvent extends Event {
 
     public LightningBolt getEntity() {
         return this.entity;
+    }
+
+    public boolean isDirect() {
+        return this.direct;
     }
 }

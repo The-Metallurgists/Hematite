@@ -16,6 +16,7 @@ public class HematiteTickSources {
     public static final DeferredHolder<TickSource, TickSource> SNOW = makeSource("snow");
     public static final DeferredHolder<TickSource, TickSource> RAIN = makeSource("rain");
     public static final DeferredHolder<TickSource, TickSource> LIGHTNING = makeSource("lightning");
+    public static final DeferredHolder<TickSource, TickSource> INDIRECT_LIGHTNING = makeSource("indirect_lightning");
 
     public static DeferredHolder<TickSource, TickSource> makeSource(String name) {
         return SOURCES.register(name, TickSource::new);

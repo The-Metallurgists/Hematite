@@ -1,5 +1,7 @@
 package dev.metallurgists.hematite.mixin;
 
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import dev.metallurgists.hematite.api.weathering.block_growths.events.LightningStruckBlockEvent;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.Entity;
@@ -28,6 +30,13 @@ public abstract class LightningBoltMixin extends Entity {
     private void powerLightningRod(CallbackInfo ci) {
         BlockPos blockPos = this.getStrikePosition();
         BlockState blockState = this.level().getBlockState(blockPos);
-        NeoForge.EVENT_BUS.post(new LightningStruckBlockEvent(blockState, level(), blockPos, (LightningBolt) (Object) this));
+        NeoForge.EVENT_BUS.post(new LightningStruckBlockEvent(blockState, level(), blockPos, (LightningBolt) (Object) this, true));
     }
+
+    @WrapOperation(method = "spawnFire", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/Level;setBlockAndUpdate(Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)Z", ordinal = 1))
+    private boolean spawnFire(Level instance, BlockPos pos, BlockState state, Operation<Boolean> original) {
+        NeoForge.EVENT_BUS.post(new LightningStruckBlockEvent(instance.getBlockState(pos.below()), level(), pos.below(), (LightningBolt) (Object) this, false));
+        return original.call(instance, pos, state);
+    }
+
 }
