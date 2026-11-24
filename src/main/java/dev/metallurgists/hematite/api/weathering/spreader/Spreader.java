@@ -65,7 +65,7 @@ public interface Spreader {
             return false;
         }
         //if it has ticked //
-        // !shouldAlwaysWeather (disabled)and weathering isn't caused by high weathering effect & it's unweatherable we dont weather
+        // !shouldAlwaysWeather (disabled)and weathering isn't caused by high weathering effect, and it's unweatherable we don't weather
         if ( hasTicked && posRandom.nextFloat() < this.getUnWeatherableChance(level, pos)) {
             return false;
         }
@@ -184,8 +184,8 @@ public interface Spreader {
     }
 
     /**
-     * gets called more rarely since it requires the given direction has at least a HIGHSusceptibility level
-     * Dy default checks if the given block belongs to the same weathering family & it itself is weathering
+     * gets called more rarely since it requires the given direction has at least a HIGH Susceptibility level
+     * Dy default checks if the given block belongs to the same weathering family and it itself is weathering
      *
      * @return effect that this block has
      */
