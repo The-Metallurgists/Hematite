@@ -21,7 +21,8 @@ public class HematiteRuleTestTypes {
     public static final DeferredHolder<RuleTestType<?>, RuleTestType<LogMatchTest>> LOG_TEST = register("tree_log", LogMatchTest.CODEC);
 
     public static <T extends RuleTest> DeferredHolder<RuleTestType<?>, RuleTestType<T>> register(String name, MapCodec<T> codec) {
-        return RULE_TESTS.register(name, () -> RuleTestType.register(name, codec));
+        var type = (RuleTestType<T>) () -> codec;
+        return RULE_TESTS.register(name, () -> type);
     }
 
     public static void staticInit() {
